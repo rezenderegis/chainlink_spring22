@@ -1,9 +1,14 @@
+import React, {useContext} from 'react';
 import {AiFillPlayCircle} from "react-icons/ai";
 import {SiEthereum} from "react-icons/si";
-
+import { TransactionContext } from "../context/TransactionContext";
 import {Loader} from './';
 
 const Welcome = () => {
+    //const {value} = userContext(TransactionContext);
+    const {value} = useContext(TransactionContext);
+    
+    console.log(value);
 
     const connectWallet = () => {
 
