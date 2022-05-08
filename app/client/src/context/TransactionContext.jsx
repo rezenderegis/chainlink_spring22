@@ -22,7 +22,7 @@ const getEthereumContract = ()=>{
 
 export const TransactionProvider = ({children}) =>{
     return (
-        <TransactionContext.Provider value={{value: 'Test transfer data transaction context Block Receipt'}}>
+        <TransactionContext.Provider value={{value: 'Test transfer data transaction context Block Receipt 1'}}>
             {children}
         </TransactionContext.Provider>
     )
