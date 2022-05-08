@@ -1,10 +1,12 @@
 import {AiFillPlayCircle} from "react-icons/ai";
 import {SiEthereum} from "react-icons/si";
-
+import React, {useContext} from "react";
+import { TransactionContext } from "../context/TransactionContext";
 import {Loader} from './';
 
 const Welcome = () => {
-
+    const {value} = useContext(TransactionContext);
+    console.log(value);
     const connectWallet = () => {
 
     }
@@ -19,7 +21,7 @@ const Welcome = () => {
                         </h1>
                      <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
 
-                        Have all your rerceits in the same place!
+                        Have all your rerceits in the same place! 
                         Reliable receips.
 
                      </p>
