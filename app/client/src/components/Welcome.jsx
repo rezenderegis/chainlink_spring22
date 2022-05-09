@@ -5,11 +5,18 @@ import { TransactionContext } from "../context/TransactionContext";
 import {Loader} from './';
 
 const Welcome = () => {
-    const {value} = useContext(TransactionContext);
-    console.log(value);
-    const connectWallet = () => {
+    
+    //We receive the connectWallet from TransactionContext
+    const {connectWallet} = useContext(TransactionContext);
+
+    /*const connectWallet = () => {
+        alert('Clicou');
+    }*/
+
+    const handleSubmit = ()=> {
 
     }
+    
 
     return (
         <div className='flex w-full justify-center items-center'>
