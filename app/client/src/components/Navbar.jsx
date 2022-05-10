@@ -15,14 +15,14 @@ const NavbarItem = ({title, classprops})=>{
 
 
 const Navbar = () =>{
-    const [toggleMenu, setToggleMenu] = React.useState(false);
+    const [toggleMenu, setToggleMenu] = useState(false);
     return(
         <nav className='w-full flex md:justify-center justify-between items-center'>
           <div className='md-flex-[0.5] flex-initial justify-center items-center'>
               <img src={logo} alt="logo" className='w-32 cursor-pointer'/>
               </div>  
               <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial'>
-                  {["Wallets"].map((item,index)=>(
+                  {["Wallets", "NFTs", "Trarnsfer"].map((item,index)=>(
                       <NavbarItem key={item + index} title={item} />
                   ))}
                     
@@ -33,13 +33,6 @@ const Navbar = () =>{
                 
               </ul>
 
-
-                    <div className='class'>
-
-
-
-
-                    </div>
 
               <div className='flex relative'>
                   {toggleMenu
@@ -61,7 +54,7 @@ const Navbar = () =>{
                               }}/>
 
                           </li>
-                          {["Wallets"].map((item,index)=>(
+                          {["Wallets", "NFTs", "Trarnsfer"].map((item,index)=>(
                       <NavbarItem key={item + index} title={item} classprops='my-2 text-lg' />
                   ))}
                       </ul>
