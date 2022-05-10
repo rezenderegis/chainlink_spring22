@@ -23,6 +23,14 @@ export const TransactionProvider = ({children}) =>{
 
     const[currentAccount, setCurrentAccount] = useState("");
 
+    //Get data from Form
+    const [formData, setFormData] = useState({addresTo: '', amount: '', keyword: '', message: ''});
+
+    //Become easyer update data.
+    const handleChange = (e, name)=> {
+        setFormData((prevState)=> ({...prevState, [name]: e.target.value}));
+    }
+
     const checkWalletConnection = async () => {
         
         try {
@@ -44,6 +52,18 @@ export const TransactionProvider = ({children}) =>{
         }
     }
 
+    const sendTransaction = async ()=> {
+        try {
+            if (!ethereum) return alert("Check if Metamask is installed");
+
+        } catch (error) {
+            console.log(error);
+            throw new Error("No ethereum object");
+            
+        }
+    }
+
+
     useEffect(() => {
         checkWalletConnection();
 
@@ -58,6 +78,7 @@ export const TransactionProvider = ({children}) =>{
             if (!ethereum) return alert ("Please, connect Metamask");
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
             
+
             //Get first account selected
             //This method is setState. We will need create state field
             setCurrentAccount(accounts[0]);
@@ -69,7 +90,8 @@ export const TransactionProvider = ({children}) =>{
     }
 
     return (
-        <TransactionContext.Provider value={{connectWallet}}>
+        //Sending data to screem
+        <TransactionContext.Provider value={{connectWallet, currentAccount, setFormData}}>
             {children}
         </TransactionContext.Provider>
     );

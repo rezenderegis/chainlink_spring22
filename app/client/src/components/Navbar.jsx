@@ -15,7 +15,7 @@ const NavbarItem = ({title, classprops})=>{
 
 
 const Navbar = () =>{
-    const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggleMenu, setToggleMenu] = React.useState(false);
     return(
         <nav className='w-full flex md:justify-center justify-between items-center'>
           <div className='md-flex-[0.5] flex-initial justify-center items-center'>
@@ -32,6 +32,15 @@ const Navbar = () =>{
               
                 
               </ul>
+
+
+                    <div className='class'>
+
+
+
+
+                    </div>
+
               <div className='flex relative'>
                   {toggleMenu
                   ? <AiOutlineClose fontSize={28} className='text-white md:hidden cursor-pointer' onClick={()=>{

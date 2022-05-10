@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {AiFillPlayCircle} from "react-icons/ai";
 import {SiEthereum} from "react-icons/si";
 import React, {useContext} from "react";
@@ -7,7 +8,7 @@ import {Loader} from './';
 const Welcome = () => {
     
     //We receive the connectWallet from TransactionContext
-    const {connectWallet} = useContext(TransactionContext);
+    const {currentAccount, connectWallet, formData, setFormData, handleChange} = useContext(TransactionContext);
 
     /*const connectWallet = () => {
         alert('Clicou');
@@ -32,15 +33,16 @@ const Welcome = () => {
                         Reliable receips.
 
                      </p>
-
-                     <button 
+                     
+                    {!currentAccount &&
+                     ( <button 
                      type='button'
                      onClick={connectWallet}
                      className='flex flex-row justify-center items-center my-5 bg-blue-500 p-3 rounded-full cursor-pointer hover:bg-blue-500'
                      >
 
                          <p className='text-white text-base font-semibold'>Connect Wallet</p>
-                         </button>
+                         </button>})
 
                 </div>
                 
