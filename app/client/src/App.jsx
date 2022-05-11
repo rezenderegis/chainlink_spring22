@@ -10,12 +10,16 @@ const App = () => {
       <Navbar/>
       <Welcome/>
       </div>
-      <Services/>
-      <Transactions/>
-      <Footer/>
+      
     </div>
   )
 }
-//
+/**
+ * 
+ 
+<Services/>
+      <Transactions/>
+      <Footer/>
+ */
 
 export default App

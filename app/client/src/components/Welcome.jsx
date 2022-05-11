@@ -1,18 +1,24 @@
-import React, {useContext} from 'react';
+
+import {useState} from 'react';
 import {AiFillPlayCircle} from "react-icons/ai";
 import {SiEthereum} from "react-icons/si";
+import React, {useContext} from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import {Loader} from './';
 
 const Welcome = () => {
-    //const {value} = userContext(TransactionContext);
-    const {value} = useContext(TransactionContext);
     
-    console.log(value);
+    //We receive the connectWallet from TransactionContext
+    const {currentAccount, connectWallet, formData, setFormData, handleChange} = useContext(TransactionContext);
 
-    const connectWallet = () => {
+    /*const connectWallet = () => {
+        alert('Clicou');
+    }*/
+
+    const handleSubmit = ()=> {
 
     }
+    
 
     return (
         <div className='flex w-full justify-center items-center'>
@@ -24,19 +30,20 @@ const Welcome = () => {
                         </h1>
                      <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
 
-                        Have all your rerceits in the same place!
+                        Have all your rerceits in the same place! 
                         Reliable receips.
 
                      </p>
-
-                     <button 
+                     
+                    {!currentAccount &&
+                     ( <button 
                      type='button'
                      onClick={connectWallet}
                      className='flex flex-row justify-center items-center my-5 bg-blue-500 p-3 rounded-full cursor-pointer hover:bg-blue-500'
                      >
 
                          <p className='text-white text-base font-semibold'>Connect Wallet</p>
-                         </button>
+                         </button>})
 
                 </div>
                 

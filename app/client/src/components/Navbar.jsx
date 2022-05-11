@@ -22,7 +22,7 @@ const Navbar = () =>{
               <img src={logo} alt="logo" className='w-32 cursor-pointer'/>
               </div>  
               <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial'>
-                  {["Wallets"].map((item,index)=>(
+                  {["Wallets", "NFTs", "Trarnsfer"].map((item,index)=>(
                       <NavbarItem key={item + index} title={item} />
                   ))}
                     
@@ -32,6 +32,8 @@ const Navbar = () =>{
               
                 
               </ul>
+
+
               <div className='flex relative'>
                   {toggleMenu
                   ? <AiOutlineClose fontSize={28} className='text-white md:hidden cursor-pointer' onClick={()=>{
@@ -52,7 +54,7 @@ const Navbar = () =>{
                               }}/>
 
                           </li>
-                          {["Wallets"].map((item,index)=>(
+                          {["Wallets", "NFTs", "Trarnsfer"].map((item,index)=>(
                       <NavbarItem key={item + index} title={item} classprops='my-2 text-lg' />
                   ))}
                       </ul>
