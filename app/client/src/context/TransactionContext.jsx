@@ -60,6 +60,7 @@ export const TransactionProvider = ({children}) =>{
     }
 
     const sendTransaction = async ()=> {
+        console.log('call send transaction');
         try {
             if (!ethereum) return alert("Check if Metamask is installed");
 
