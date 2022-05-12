@@ -35,7 +35,6 @@ const Welcome = () => {
 
         e.preventDefault();
         if (!addressTo || !amount || !keyword || !message) return;
-        console.log('here 1');
 
         sendTransaction();
     }

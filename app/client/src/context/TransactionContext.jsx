@@ -62,18 +62,47 @@ export const TransactionProvider = ({children}) =>{
     const sendTransaction = async ()=> {
         console.log('call send transaction');
         try {
-            if (!ethereum) return alert("Check if Metamask is installed");
-
+            if(!ethereum) return alert("Please install Metamask");
             //Getting const from formData
+
             const {addressTo, amount, keyword, message} = formData;
+            const transactionContract = getEthereumContract();
+            const parsedAmount = ethers.utils.parseEther(amount);
 
-            getEthereumContract();
+            await ethereum.request({
+                method: "eth_sendTransaction",
+                params: [{
+                    from: currentAccount,
+                    to: addressTo,
+                    gas: "0x5208", // 21000 GWEI
+                    value: parsedAmount._hex,
+                }],
+            });
 
+            const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
+            setIsLoading(true);
+            console.log(`Loading - ${transactionHash.hash}`);
+            await transactionHash.wait();
+
+            console.log(`Success - ${transactionHash.hash}`);
+            setIsLoading(false);
+            
+
+            const transactionCount = await transactionContract.getTransactionCount();
+
+            setTransactionCount(transactionCount.toNumber());
+            
         } catch (error) {
+
             console.log(error);
             throw new Error("No ethereum object");
             
         }
+
+
+
+
+
     }
 
 
