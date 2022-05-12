@@ -6,6 +6,8 @@ import { constractAbi, contractAdress } from '../utils/constants';
 export const TransactionContext = React.createContext();
 
 const {ethereum} = window;
+
+//Ethereum contract
 const getEthereumContract = ()=>{
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
@@ -28,6 +30,11 @@ export const TransactionProvider = ({children}) =>{
 
     //Become easyer update data.
     const handleChange = (e, name)=> {
+
+        /*update form data
+        ...prevState - Spread operator
+        Send this to context object on TransactionContext.Provider
+        */
         setFormData((prevState)=> ({...prevState, [name]: e.target.value}));
     }
 
@@ -55,6 +62,11 @@ export const TransactionProvider = ({children}) =>{
     const sendTransaction = async ()=> {
         try {
             if (!ethereum) return alert("Check if Metamask is installed");
+
+            //Getting const from formData
+            const {addressTo, amount, keyword, message} = formData;
+
+            getEthereumContract();
 
         } catch (error) {
             console.log(error);
@@ -91,7 +103,9 @@ export const TransactionProvider = ({children}) =>{
 
     return (
         //Sending data to screem
-        <TransactionContext.Provider value={{connectWallet, currentAccount, setFormData}}>
+        //We did Welcome handleSubmit and put the sendTransaction here to receive the data. 
+        <TransactionContext.Provider value={{connectWallet,  currentAccount, formData, setFormData, handleChange, sendTransaction}}>
+            
             {children}
         </TransactionContext.Provider>
     );
