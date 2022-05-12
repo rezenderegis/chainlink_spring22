@@ -9,6 +9,7 @@ const {ethereum} = window;
 
 //Ethereum contract
 const getEthereumContract = ()=>{
+
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAdress, constractAbi, signer);
@@ -60,26 +61,33 @@ export const TransactionProvider = ({children}) =>{
     }
 
     const sendTransaction = async ()=> {
+        
         console.log('call send transaction');
+
         try {
             if(!ethereum) return alert("Please install Metamask");
             //Getting const from formData
 
             const {addressTo, amount, keyword, message} = formData;
             const transactionContract = getEthereumContract();
-            const parsedAmount = ethers.utils.parseEther(amount);
+
+            //Converting to HED
+            const convertedAmount = ethers.utils.parseEther(amount);
 
             await ethereum.request({
                 method: "eth_sendTransaction",
                 params: [{
                     from: currentAccount,
                     to: addressTo,
-                    gas: "0x5208", // 21000 GWEI
-                    value: parsedAmount._hex,
+                    gas: "0x5208", 
+                    // The same of 21.000 GWEI
+                    value: convertedAmount._hex,
                 }],
             });
 
-            const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
+            //addToBlockchain is a Smart Contract Funcion. 
+            const transactionHash = await transactionContract.addToBlockchain(addressTo, convertedAmount, message, keyword);
+
             setIsLoading(true);
             console.log(`Loading - ${transactionHash.hash}`);
             await transactionHash.wait();
