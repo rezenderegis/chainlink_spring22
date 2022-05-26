@@ -40,7 +40,7 @@ export const TransactionProvider = ({children}) =>{
     }
 
     const checkWalletConnection = async () => {
-        
+        console.log("Here: checkWalletConnection");
         try {
         if (!ethereum) return alert("Check if Metamask is installed");
 
@@ -121,13 +121,14 @@ export const TransactionProvider = ({children}) =>{
 
     //Function connect browser to metamask
     const connectWallet = async () => {
-        
+        console.log("HERE: connectWallet");
+
         try {
             
             //Check ethereum object exist. Make request to accounts
             if (!ethereum) return alert ("Please, connect Metamask");
             const accounts = await ethereum.request({method: 'eth_requestAccounts'});
-            
+
 
             //Get first account selected
             //This method is setState. We will need create state field
