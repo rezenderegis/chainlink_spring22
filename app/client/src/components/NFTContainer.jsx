@@ -7,7 +7,7 @@ export const NFTContainer = ({nfts}) => {
 
     
   return (
-      <div className='nft-container'>
+<div class="grid gap-20 grid-cols-3 grid-rows-3">
 
     {
         nfts.map((nft,index) => {

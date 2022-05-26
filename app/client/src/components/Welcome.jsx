@@ -64,13 +64,12 @@ const Welcome = () => {
             <div className='flex md:flex-row flex-col items-star justify-between me:p-20 py-12 px-4'>
                 <div className='flex flex-1 justify-start flex-col md:mr-10'>
                     <h1 className='text=3x1 sm:text-5x1 text-white text-gradient py-1'>
-                    Show all your reeipts <br/> 
-                    same place!
+                    Show all your reeipts and NFTs 
+                    in the same place!
                         </h1>
                      <p className='text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base'>
 
-                        Have all your rerceits in the same place! 
-                        Reliable receips.
+                        The best way to see your wallet!
 
                      </p>
 
