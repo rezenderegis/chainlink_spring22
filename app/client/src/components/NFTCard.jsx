@@ -6,18 +6,21 @@ import { HiMenuAlt4 } from 'react-icons/hi';
 
 export const NFTCard = ({nft}) => {
   return (
-<section class="overflow-hidden text-gray-700">
-    <div class="flex flex-wrap -m-e md:-m-2">
-      
-      <div class="flex flex-wrap w-3/3">
-        <div class="w-full p-1 md:p-2">
-          <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src={nft.meta.content[0].url}/>
-       
-        </div>
-      </div>
-      
-      
+<section class="overflow-hidden text-gray-600">
+ 
+<div class="flex justify-center">
+  <div class="rounded-lg shadow-lg bg-white max-w-sm">
+    <a href="#!">
+      <img class="rounded-t-lg" src={nft.meta.content[0].url} alt=""/>
+    </a>
+    <div class="p-6">
+      <h5 class="text-gray-900 text-xl font-medium mb-2">{nft.meta.name}</h5>
+      <p class="text-gray-700 text-base mb-4">
+       Collection: {nft.collection}
+      </p>
     </div>
+  </div>
+</div>
 
 </section>
 
