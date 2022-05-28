@@ -17,9 +17,9 @@ const mJSON = {
         name: mName
     },
     pinataContent: {
-        "description" : "David Fabricio Antonio NFT - 12:20 AM - May 27, 2022", 
+        "description" : "Block Receipts - Team: David, Fabricio & Antonio", 
         "image" : "https://gateway.pinata.cloud/ipfs/QmRoVerJ4WMizkMeUPQixbxhYUUvs3jgGVTARyC3rnwmQV", 
-        "name" : "DAF-RCTP-NFT",
+        "name" : "BLOCK-RCPT",
         "data" : JSONTransaction
     }
 }
