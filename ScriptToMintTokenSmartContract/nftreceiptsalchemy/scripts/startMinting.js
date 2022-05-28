@@ -11,7 +11,7 @@ const {createAlchemyWeb3} = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 const contract = fs.readFileSync('../xabi.json', 'utf8');
 const abi = JSON.parse(contract);
-const contractAddress = "0x737cce76eddd3f1d2eab6eb24b11391810ba55ae";
+const contractAddress = "0x9af243da3e765cad50ca132472a0faad87b73b01";
 const nftContract = new web3.eth.Contract(abi, contractAddress);
 
 exports.startMinting = async (walletAddress, tokenURI) => {
