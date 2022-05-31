@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 import {useState} from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
-//To create the bases just write raf and will complete automaticly
+//To create the bases just write raf and will complete automaticly .
 
 export const NFTCard = ({nft}) => {
   return (

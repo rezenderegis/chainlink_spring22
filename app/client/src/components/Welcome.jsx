@@ -13,19 +13,15 @@ const Welcome = () => {
 
     const [nfts, setNfts] = useState([])
 
-    /*const connectWallet = () => {
-        alert('Clicou');
-    }*/
-
-
     const connectWallet = async () => {
 
         //Exactly the code of Metamask Documentation 
         //https://docs.metamask.io/guide/getting-started.html#basic-considerations
+
         if (typeof window.ethereum !== 'undefined') {
     
-          /*1 - We have the accounts. Now we need to save.
-          Using use State
+          /*
+          1 - We have the accounts. Now we need to save.
           */
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     
@@ -42,17 +38,12 @@ const Welcome = () => {
     
         //https://api.rarible.org/v0.1/doc#operation/getItemsByOwnerWithOwnership
     
-        const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${getWalletAddress}`);
-       // const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:0xB7f9E960b89a7a96f41A7555Ec57aaB4bc3b85ca`);
-    
-       // const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:0x60f80121c31a0d46b5279700f9df786054aa5ee5`);
+        const response = await fetch(`https://api.rarible.org/v0.1/items/byOwner/?owner=ETHEREUM:${getWalletAddress}`);    
     
         const data = await response.json();
     
         setNfts(data.items)
-    
-        //debugger
-         
+             
       }
    
       useEffect(() => {
@@ -82,14 +73,7 @@ const Welcome = () => {
                          <p className='text-white text-base font-semibold'>Connect Wallet</p>
                          </button>
 
-                         <button 
-                     type='button'
-                     onClick={getNftData}
-                     className='flex flex-row justify-center items-center my-5 bg-blue-500 p-3 rounded-full cursor-pointer hover:bg-blue-500'
-                     >
-
-                         <p className='text-white text-base font-semibold'>My Receipts</p>
-                         </button>
+                        
                          <NFTContainer nfts={nfts} />
 
 
