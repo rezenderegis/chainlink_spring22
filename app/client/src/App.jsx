@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import {Loader, Welcome, Footer, Transactions, Services,Navbar} from './components';
+import {Loader, Welcome, Navbar} from './components';
 const App = () => {
 
   return (
@@ -14,12 +14,4 @@ const App = () => {
     </div>
   )
 }
-/**
- * 
- 
-<Services/>
-      <Transactions/>
-      <Footer/>
- */
-
 export default App

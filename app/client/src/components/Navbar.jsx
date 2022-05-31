@@ -17,19 +17,23 @@ const NavbarItem = ({title, classprops})=>{
 const Navbar = () =>{
     const [toggleMenu, setToggleMenu] = useState(false);
     return(
-        <nav className='w-full flex md:justify-center justify-between items-center'>
+        <nav className='bg-blue-500 w-full flex md:justify-center justify-between items-center'>
           <div className='md-flex-[0.5] flex-initial justify-center items-center'>
               <img src={logo} alt="logo" className='w-32 cursor-pointer'/>
               </div>  
               <ul className='text-white md:flex hidden list-none flex-row justify-between items-center flex-initial'>
-                  {["Wallets", "NFTs", "Trarnsfer"].map((item,index)=>(
+                
+                {/*
+                  {["Receipts"].map((item,index)=>(
                       <NavbarItem key={item + index} title={item} />
                   ))}
                     
+                
                   <li className="bg-pink-900 py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-pink-900">
                       Login
                   </li>
-              
+                  */
+                }
                 
               </ul>
 
