@@ -1,0 +1,16 @@
+{
+  "name": "nftreceiptsalchemy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.4.2",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1"
+  }
+}
